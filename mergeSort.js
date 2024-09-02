@@ -13,7 +13,6 @@ function merge_sort(arr) {
     let leftPointer = 0;
     let rightPointer = 0;
     const mergeArray = [];
-    const finalArray = [];
 
     while (leftPointer < leftArrayVal.length && rightPointer < rightArrayVal.length) {
         if (leftArrayVal[leftPointer] > rightArrayVal[rightPointer]) {
@@ -25,18 +24,7 @@ function merge_sort(arr) {
         }
     }
 
-    finalArray.push(...mergeArray);
-
-    // push the remaining values
-    if (rightPointer < rightArrayVal.length) {
-        finalArray.push(...rightArrayVal.slice(rightPointer));
-    }
-    // push the remaining values
-    if (leftPointer < leftArrayVal.length) {
-        finalArray.push(...leftArrayVal.slice(leftPointer));
-    }
-
-    return finalArray;
+    return [...mergeArray, ...leftArrayVal.slice(leftPointer), ...rightArrayVal.slice(rightPointer)];
 }
 
 console.log("** MERGE SORT **");
